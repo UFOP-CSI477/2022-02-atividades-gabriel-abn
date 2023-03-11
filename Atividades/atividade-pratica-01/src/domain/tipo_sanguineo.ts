@@ -1,12 +1,14 @@
-import { DomainError } from "./common";
+import { DomainError, Entity } from "./common";
 
 export type TipoSanguineoProps = {
   tipo: string;
   fator: string;
 };
 
-export class TipoSanguineo {
-  private constructor(private props: TipoSanguineoProps) {}
+export class TipoSanguineo extends Entity<TipoSanguineoProps> {
+  private constructor(props: TipoSanguineoProps) {
+    super(props);
+  }
 
   public static create(props: TipoSanguineoProps): TipoSanguineo | Error {
     var errors: string[] = [];

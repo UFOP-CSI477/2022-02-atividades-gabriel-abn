@@ -1,4 +1,4 @@
-import { DomainError } from "./common";
+import { DomainError, Entity } from "./common";
 
 export type ProdutoProps = {
   etiqueta: string;
@@ -6,8 +6,10 @@ export type ProdutoProps = {
   validade: Date;
 };
 
-export class Produto {
-  private constructor(private props: ProdutoProps) {}
+export class Produto extends Entity<ProdutoProps> {
+  private constructor(props: ProdutoProps) {
+    super(props);
+  }
 
   public static create(props: ProdutoProps): Produto | Error {
     var errors: string[] = [];
