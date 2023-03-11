@@ -1,6 +1,6 @@
 # **CSI606-2021-02 - Remoto - Trabalho Final - Resultados**
 
-## *Aluna(o): Princesa Leia (Luke Skywalker)*
+## *Aluna(o): Gabriel Antônio Batista Nascimento*
 
 --------------
 
