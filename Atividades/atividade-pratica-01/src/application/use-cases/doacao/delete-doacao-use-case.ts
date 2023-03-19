@@ -1,7 +1,7 @@
 import { ApplicationError } from "@application/common";
 import { IDoacaoRepository } from "@application/repositories";
 
-export namespace DeleteDoacaoUseCase {
+export namespace DeleteDoacao {
   export type Params = {
     id: string;
   };
@@ -12,9 +12,7 @@ export namespace DeleteDoacaoUseCase {
 export class DeleteDoacaoUseCase {
   constructor(private readonly doacaoRepository: IDoacaoRepository) {}
 
-  async execute(
-    params: DeleteDoacaoUseCase.Params
-  ): Promise<DeleteDoacaoUseCase.Result> {
+  async execute(params: DeleteDoacao.Params): Promise<DeleteDoacao.Result> {
     const result = await this.doacaoRepository.delete(params.id);
 
     if (!result) {

@@ -2,7 +2,7 @@ import { ApplicationError } from "@application/common";
 import { IDoacaoRepository } from "@application/repositories";
 import { Doacao, DoacaoProps } from "@domain/doacao";
 
-export namespace UpdateDoacaoUseCase {
+export namespace UpdateDoacao {
   export type Params = {
     doacao: DoacaoProps;
   };
@@ -12,9 +12,7 @@ export namespace UpdateDoacaoUseCase {
 export class UpdateDoacaoUseCase {
   constructor(private readonly doacaoRepository: IDoacaoRepository) {}
 
-  async execute(
-    data: UpdateDoacaoUseCase.Params
-  ): Promise<UpdateDoacaoUseCase.Result> {
+  async execute(data: UpdateDoacao.Params): Promise<UpdateDoacao.Result> {
     const existsDoacao = await this.doacaoRepository.findById(data.doacao.id);
 
     if (!existsDoacao) {
