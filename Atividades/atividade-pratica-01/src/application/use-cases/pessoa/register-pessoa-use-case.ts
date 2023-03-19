@@ -1,6 +1,6 @@
 import { ApplicationError } from "@application/common";
-import { IIDGenerator } from "@application/protocols";
 import { IPessoaRepository } from "@application/repositories";
+import { IIDGenerator } from "@application/use-cases/protocols";
 import { Pessoa } from "@domain/pessoas";
 
 export namespace RegisterPessoa {

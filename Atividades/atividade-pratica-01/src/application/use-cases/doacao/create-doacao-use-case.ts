@@ -1,10 +1,10 @@
 import { ApplicationError } from "@application/common";
-import { IIDGenerator } from "@application/protocols";
 import {
   IDoacaoRepository,
   ILocalColetaRepository,
   IPessoaRepository,
 } from "@application/repositories";
+import { IIDGenerator } from "@application/use-cases/protocols";
 import { Doacao } from "@domain/doacao";
 
 export namespace CreateDoacao {

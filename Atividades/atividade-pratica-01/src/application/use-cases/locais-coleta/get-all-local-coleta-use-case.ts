@@ -2,14 +2,14 @@ import { ApplicationError } from "@application/common";
 import { ILocalColetaRepository } from "@application/repositories";
 import { LocalColetaProps } from "@domain/local-coleta";
 
-export namespace GetAllDoacao {
+export namespace GetAllLocalColeta {
   export type Result = LocalColetaProps[];
 }
 
-export class GetAllDoacaoUseCase {
+export class GetAllLocalColetaUseCase {
   constructor(private readonly localColetaRepository: ILocalColetaRepository) {}
 
-  async execute(): Promise<GetAllDoacao.Result> {
+  async execute(): Promise<GetAllLocalColeta.Result> {
     const local = await this.localColetaRepository.findAll();
 
     if (local.length == 0) {
