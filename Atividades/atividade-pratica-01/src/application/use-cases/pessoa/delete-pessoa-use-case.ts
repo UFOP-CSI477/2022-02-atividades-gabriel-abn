@@ -1,6 +1,6 @@
 import { IPessoaRepository } from "@application/repositories";
 
-export namespace DeletePessoaUseCase {
+export namespace DeletePessoa {
   export type Params = {
     documento: string;
   };
@@ -10,9 +10,7 @@ export namespace DeletePessoaUseCase {
 export class DeletePessoaUseCase {
   constructor(private readonly pessoaRepository: IPessoaRepository) {}
 
-  async execute(
-    input: DeletePessoaUseCase.Params
-  ): Promise<DeletePessoaUseCase.Result> {
+  async execute(input: DeletePessoa.Params): Promise<DeletePessoa.Result> {
     const pessoa = await this.pessoaRepository.findByDocumento(input.documento);
 
     if (!pessoa) {
