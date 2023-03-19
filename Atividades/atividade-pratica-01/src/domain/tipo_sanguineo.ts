@@ -1,6 +1,7 @@
 import { DomainError, Entity } from "./common";
 
 export type TipoSanguineoProps = {
+  id: string;
   tipo: string;
   fator: string;
 };
@@ -10,11 +11,11 @@ export class TipoSanguineo extends Entity<TipoSanguineoProps> {
     super(props);
   }
 
-  public static create(props: TipoSanguineoProps): TipoSanguineo | Error {
+  public static create(props: TipoSanguineoProps): TipoSanguineo {
     var errors: string[] = [];
 
     if (errors.length > 0) {
-      return new DomainError(errors);
+      throw new DomainError(errors);
     }
 
     return new TipoSanguineo(props);

@@ -1,6 +1,7 @@
 import { DomainError, Entity } from "./common";
 
 export type DoacaoProps = {
+  id: string;
   pessoa_id: string;
   local_id: string;
   data: Date;
@@ -11,11 +12,11 @@ export class Doacao extends Entity<DoacaoProps> {
     super(props);
   }
 
-  public static create(props: DoacaoProps): Doacao | Error {
+  public static create(props: DoacaoProps): Doacao {
     var errors: string[] = [];
 
     if (errors.length > 0) {
-      return new DomainError(errors);
+      throw new DomainError(errors);
     }
 
     return new Doacao(props);

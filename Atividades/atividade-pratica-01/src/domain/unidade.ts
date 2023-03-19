@@ -1,6 +1,7 @@
 import { DomainError, Entity } from "@domain/common";
 
 export type UnidadeProps = {
+  id: string;
   nome: string;
   numero: string;
   complemento: string;
@@ -12,7 +13,7 @@ export class Unidade extends Entity<UnidadeProps> {
     super(props);
   }
 
-  public static create(props: UnidadeProps): Unidade | Error {
+  public static create(props: UnidadeProps): Unidade {
     var errors: string[] = [];
 
     if (!props.complemento) {
@@ -20,7 +21,7 @@ export class Unidade extends Entity<UnidadeProps> {
     }
 
     if (errors.length > 0) {
-      return new DomainError(errors);
+      throw new DomainError(errors);
     }
 
     return new Unidade(props);

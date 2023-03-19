@@ -1,6 +1,7 @@
 import { DomainError, Entity } from "./common";
 
 export type ProdutoProps = {
+  id: string;
   etiqueta: string;
   doacao_id: number;
   validade: Date;
@@ -11,7 +12,7 @@ export class Produto extends Entity<ProdutoProps> {
     super(props);
   }
 
-  public static create(props: ProdutoProps): Produto | Error {
+  public static create(props: ProdutoProps): Produto {
     var errors: string[] = [];
 
     if (props.validade.getTime() < Date.now()) {
@@ -19,7 +20,7 @@ export class Produto extends Entity<ProdutoProps> {
     }
 
     if (errors.length > 0) {
-      return new DomainError(errors);
+      throw new DomainError(errors);
     }
 
     return new Produto(props);

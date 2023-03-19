@@ -1,6 +1,7 @@
 import { DomainError, Entity } from "@domain/common";
 
 export type PessoaProps = {
+  id: string;
   nome: string;
   rua: string;
   numero: string;
@@ -15,7 +16,7 @@ export class Pessoa extends Entity<PessoaProps> {
     super(props);
   }
 
-  public static create(props: PessoaProps): Pessoa | Error {
+  public static create(props: PessoaProps): Pessoa {
     var errors: string[] = [];
 
     if (props.documento.length != 8) {
@@ -23,7 +24,7 @@ export class Pessoa extends Entity<PessoaProps> {
     }
 
     if (errors.length > 0) {
-      return new DomainError(errors);
+      throw new DomainError(errors);
     }
 
     return new Pessoa(props);
