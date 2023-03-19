@@ -1,6 +1,6 @@
 import { DomainError, Entity } from "./common";
 
-export type LocaisColetaProps = {
+export type LocalColetaProps = {
   id: string;
   nome: string;
   rua: string;
@@ -9,18 +9,18 @@ export type LocaisColetaProps = {
   cidade_id: number;
 };
 
-export class LocaisColeta extends Entity<LocaisColetaProps> {
-  private constructor(props: LocaisColetaProps) {
+export class LocalColeta extends Entity<LocalColetaProps> {
+  private constructor(props: LocalColetaProps) {
     super(props);
   }
 
-  public static create(props: LocaisColetaProps): LocaisColeta {
+  public static create(props: LocalColetaProps): LocalColeta {
     var errors: string[] = [];
 
     if (errors.length > 0) {
       throw new DomainError(errors);
     }
 
-    return new LocaisColeta(props);
+    return new LocalColeta(props);
   }
 }
