@@ -1,7 +1,7 @@
 import { ApplicationError } from "@application/common";
 import { ITipoSanguineoRepository } from "@application/repositories";
 
-export namespace DeleteTipoSanguineoUseCase {
+export namespace DeleteTipoSanguineo {
   export type Params = {
     id: string;
   };
@@ -14,8 +14,8 @@ export class DeleteTipoSanguineoUseCase {
   ) {}
 
   async execute(
-    params: DeleteTipoSanguineoUseCase.Params
-  ): Promise<DeleteTipoSanguineoUseCase.Result> {
+    params: DeleteTipoSanguineo.Params
+  ): Promise<DeleteTipoSanguineo.Result> {
     const result = await this.tipoSanguineoRepository.delete(params.id);
 
     if (!result) throw new ApplicationError("Tipo Sanguineo não encontrado");
